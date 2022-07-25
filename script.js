@@ -234,7 +234,7 @@ function startGUI () {
     let captureFolder = gui.addFolder('Capture');
     captureFolder.addColor(config, 'BACK_COLOR').name('background color');
     captureFolder.add(config, 'TRANSPARENT').name('transparent');
-    captureFolder.add({ fun: captureScreenshot }, 'fun').name('take screenshot');
+    captureFolder.add({ fun: captureScreenshot }, 'fun').name((isMobile() ? 'take screenshot' : 'take screenshot (s)'));
 
     let github = gui.add({ fun : () => {
         window.open('https://github.com/PavelDoGreat/WebGL-Fluid-Simulation');
@@ -1644,3 +1644,9 @@ function hashCode (s) {
     }
     return hash;
 };
+//keyboard shortcuts
+window.addEventListener("keydown", function(event){
+    if(event.keyCode() === "KeyS"){
+        captureScreenshot();
+    }
+});
