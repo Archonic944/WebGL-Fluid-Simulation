@@ -1646,7 +1646,7 @@ function hashCode (s) {
 };
 //keyboard shortcuts
 window.addEventListener("keydown", function(event){
-    if(event.keyCode() === "KeyS"){
+    if(event.keyCode === "KeyS"){
         captureScreenshot();
     }
 });
